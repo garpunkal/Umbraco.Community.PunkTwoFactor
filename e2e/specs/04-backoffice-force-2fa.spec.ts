@@ -107,10 +107,15 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
       if (await closeMfaBtn.isVisible().catch(() => false)) {
         await closeMfaBtn.click();
       }
+      const closeProfileBtn = page.getByRole('button', { name: 'Close' }).last();
+      if (await closeProfileBtn.isVisible().catch(() => false)) {
+        await closeProfileBtn.click();
+      }
 
       // 6. Toggle ForceTwoFactor back off and verify user can now see Disable and disable 2FA
       fs.writeFileSync(appsettingsPath, originalAppsettings, 'utf-8');
       await page.waitForTimeout(1000);
+      await page.reload();
 
       await backoffice.openConfigureTwoFactor();
       await expect(disableButton).toBeVisible({ timeout: 15_000 });
