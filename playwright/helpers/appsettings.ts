@@ -1,10 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const appsettingsPath = path.resolve(__dirname, '../../punkTwoFactor.Umbraco/appsettings.json');
+const appsettingsPath = path.resolve(__dirname, '../../Umbraco.Community.PunkTwoFactor.Umbraco/appsettings.json');
 
 /**
- * Temporarily merges a `punkTwoFactor` section into `punkTwoFactor.Umbraco/appsettings.json`
+ * Temporarily merges a `punkTwoFactor` section into `Umbraco.Community.PunkTwoFactor.Umbraco/appsettings.json`
  * and returns a restore function that reverts the file to its original contents.
  */
 export function updatePunkTwoFactorSettings(settings: Record<string, unknown>): () => void {

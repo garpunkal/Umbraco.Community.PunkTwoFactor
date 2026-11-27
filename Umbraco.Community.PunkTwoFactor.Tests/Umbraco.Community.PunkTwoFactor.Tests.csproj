@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\punkTwoFactor\punkTwoFactor.csproj" />
+    <ProjectReference Include="..\Umbraco.Community.PunkTwoFactor\Umbraco.Community.PunkTwoFactor.csproj" />
   </ItemGroup>
 
 </Project>

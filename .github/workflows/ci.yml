@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release
       - name: Run Unit Tests with Coverage
-        run: dotnet test punkTwoFactor.Tests --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory coverage
+        run: dotnet test Umbraco.Community.PunkTwoFactor.Tests --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory coverage
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v7
         with:

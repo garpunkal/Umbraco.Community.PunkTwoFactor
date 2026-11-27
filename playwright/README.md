@@ -41,7 +41,7 @@ npx playwright install chromium
 
 ### 2. Configure Environment
 
-A `.env` is already created with the default `punkTwoFactor.Umbraco` credentials:
+A `.env` is already created with the default `Umbraco.Community.PunkTwoFactor.Umbraco` credentials:
 
 ```env
 UMBRACO_BASE_URL=https://localhost:44384
@@ -50,7 +50,7 @@ UMBRACO_ADMIN_PASSWORD=Password123!
 HEADLESS=true
 ```
 
-Playwright is configured with a built-in `webServer` task that automatically launches `punkTwoFactor.Umbraco` (configured with unattended SQLite installation) if it's not already running!
+Playwright is configured with a built-in `webServer` task that automatically launches `Umbraco.Community.PunkTwoFactor.Umbraco` (configured with unattended SQLite installation) if it's not already running!
 
 ---
 

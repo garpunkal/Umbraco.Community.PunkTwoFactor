@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Umbraco.Community.PunkTwoFactor/Umbraco.Community.PunkTwoFactor.csproj" />
+  <Project Path="Umbraco.Community.PunkTwoFactor.Tests/Umbraco.Community.PunkTwoFactor.Tests.csproj" />
+  <Project Path="Umbraco.Community.PunkTwoFactor.Umbraco/Umbraco.Community.PunkTwoFactor.Umbraco.csproj" />
+</Solution>

@@ -758,4 +758,4 @@ FodyWeavers.xsd
 *.sqlite.db*
 *.db-shm
 *.db-wal
-**/punkTwoFactor.Umbraco/umbraco/Logs/
+**/Umbraco.Community.PunkTwoFactor.Umbraco/umbraco/Logs/
