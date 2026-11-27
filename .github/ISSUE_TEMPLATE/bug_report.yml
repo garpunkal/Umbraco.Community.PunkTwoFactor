@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a bug or unexpected behavior in punkTwoFactor
+description: Report a bug or unexpected behavior in Umbraco.Community.PunkTwoFactor
 labels: ["bug"]
 body:
   - type: textarea
@@ -20,6 +20,6 @@ body:
     id: versions
     attributes:
       label: Versions
-      placeholder: "e.g., Umbraco 18.2.1, punkTwoFactor 18.3.2.3, .NET 10"
+      placeholder: "e.g., Umbraco 18.2.1, Umbraco.Community.PunkTwoFactor 18.3.2.5, .NET 10"
     validations:
       required: true

@@ -1,5 +1,5 @@
 {
-  "Title": "punkTwoFactor",
+  "Title": "Umbraco.Community.PunkTwoFactor",
   "Description": "Two-Factor Authentication (2FA) for Umbraco backoffice users using TOTP authenticator apps, with optional ForceTwoFactor enforcement.",
   "Category": "Editor Tools",
   "Tags": [ "Security", "Authentication", "2FA", "MFA", "TOTP" ],

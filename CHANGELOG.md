@@ -1,8 +1,9 @@
 # Changelog
 
-All notable changes to `punkTwoFactor` are documented in this file.
+All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Renamed solution, projects, repository, and documentation references to `Umbraco.Community.PunkTwoFactor`.
 - Changed NuGet `<PackageId>` to `Umbraco.Community.PunkTwoFactor`.
 - Updated screenshots in `screenshots/`, `README.md`, and `umbraco-marketplace.json` with live Umbraco 18 Playwright captures.
 

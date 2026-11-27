@@ -18,7 +18,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['../punkTwoFactor/wwwroot/**/*.js'],
+    files: ['../Umbraco.Community.PunkTwoFactor/wwwroot/**/*.js'],
     languageOptions: {
       globals: {
         ...globals.browser,

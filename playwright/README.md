@@ -1,6 +1,6 @@
-# Playwright E2E Tests for punkTwoFactor
+# Playwright E2E Tests for Umbraco.Community.PunkTwoFactor
 
-Automated end-to-end test suite for `punkTwoFactor` in Umbraco Backoffice using Playwright.
+Automated end-to-end test suite for `Umbraco.Community.PunkTwoFactor` in Umbraco Backoffice using Playwright.
 
 ## Test Coverage
 

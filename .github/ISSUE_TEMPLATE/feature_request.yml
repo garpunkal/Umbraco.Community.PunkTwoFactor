@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest an enhancement or new feature for punkTwoFactor
+description: Suggest an enhancement or new feature for Umbraco.Community.PunkTwoFactor
 labels: ["enhancement"]
 body:
   - type: textarea

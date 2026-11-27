@@ -1,7 +1,7 @@
 {
   "name": "punk-two-factor-e2e",
   "version": "1.0.0",
-  "description": "Playwright end-to-end test suite for punkTwoFactor Umbraco 2FA",
+  "description": "Playwright end-to-end test suite for Umbraco.Community.PunkTwoFactor Umbraco 2FA",
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",

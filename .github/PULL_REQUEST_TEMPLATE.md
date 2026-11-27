@@ -4,7 +4,7 @@
 
 ## Checklist
 
-- [ ] `punkTwoFactor.slnx` builds without errors
-- [ ] Unit tests (`punkTwoFactor.Tests`) pass
+- [ ] `Umbraco.Community.PunkTwoFactor.slnx` builds without errors
+- [ ] Unit tests (`Umbraco.Community.PunkTwoFactor.Tests`) pass
 - [ ] Playwright checks (`npm run typecheck`, `npm run lint`, `npm test`) pass
 - [ ] Documentation updated if applicable

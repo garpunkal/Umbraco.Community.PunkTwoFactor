@@ -1,4 +1,4 @@
-# punkTwoFactor
+# Umbraco.Community.PunkTwoFactor
 
 [![NuGet release](https://img.shields.io/nuget/v/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
@@ -31,7 +31,7 @@ Once installed, users can enable 2FA from their profile in the Umbraco backoffic
 
 ## Configuration
 
-You can optionally configure `punkTwoFactor` via your `appsettings.json` file.
+You can optionally configure `Umbraco.Community.PunkTwoFactor` via your `appsettings.json` file.
 
 ### Custom Issuer & Provider Name
 
@@ -75,12 +75,15 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 ## Screenshots
 
 ### Forced 2FA Prompt
+
 ![Forced Two-Factor Authentication Prompt](screenshots/force-2fa-modal.png)
 
 ### QR Code Setup
+
 ![Umbraco Backoffice QR Code Setup](screenshots/qr-modal.png)
 
 ### 2FA Login Verification
+
 ![Two-Factor Authentication Login Verification](screenshots/2fa-login.png)
 
 ---
