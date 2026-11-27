@@ -1,4 +1,4 @@
-# Umbraco.Community.PunkTwoFactor
+# PunkTwoFactor
 
 [![NuGet release](https://img.shields.io/nuget/v/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
@@ -75,15 +75,15 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 
 ### Forced 2FA Prompt
 
-![Forced Two-Factor Authentication Prompt](screenshots/force-2fa-modal.png)
+![Forced Two-Factor Authentication Prompt](https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/force-2fa-modal.png)
 
 ### QR Code Setup
 
-![Umbraco Backoffice QR Code Setup](screenshots/qr-modal.png)
+![Umbraco Backoffice QR Code Setup](https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/qr-modal.png)
 
 ### 2FA Login Verification
 
-![Two-Factor Authentication Login Verification](screenshots/2fa-login.png)
+![Two-Factor Authentication Login Verification](https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/2fa-login.png)
 
 ---
 

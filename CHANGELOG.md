@@ -3,6 +3,7 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Use absolute GitHub raw URLs for screenshots in `README.md` so they render on NuGet.org.
 
 ## [18.3.2.8] - 2026-11-27
 - Updated Umbraco CMS package references (`Umbraco.Cms.*`) from `18.2.1` to `18.3.2`.
