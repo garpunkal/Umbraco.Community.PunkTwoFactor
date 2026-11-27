@@ -4,6 +4,10 @@ All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this 
 
 ## [Unreleased]
 
+## [18.3.2.8] - 2026-11-27
+- Updated Umbraco CMS package references (`Umbraco.Cms.*`) from `18.2.1` to `18.3.2`.
+- Updated test and tooling dependencies (`Moq` `4.21.0`, `Microsoft.NET.Test.Sdk` `18.12.0`, `coverlet.collector` `10.1.1`, `typescript` `6.0.3`, `actions/checkout` `v7`, `actions/upload-artifact` `v7`).
+
 ## [18.3.2.7] - 2026-11-27
 - Fixed `release.yml` `origin/main` ancestry check using full checkout (`fetch-depth: 0`) and `git merge-base`.
 - Removed Codecov badge from `README.md`.

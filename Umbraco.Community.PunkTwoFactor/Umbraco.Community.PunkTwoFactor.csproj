@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<StaticWebAssetBasePath>App_Plugins/punkTwoFactor</StaticWebAssetBasePath>
-		<Version>18.3.2.7</Version>
+		<Version>18.3.2.8</Version>
 		<Product>Umbraco.Community.PunkTwoFactor</Product>
 		<PackageId>Umbraco.Community.PunkTwoFactor</PackageId>
 		<Title>Umbraco.Community.PunkTwoFactor</Title>
