@@ -36,7 +36,7 @@ Optionally add the following section to your `appsettings.json` to customize the
 
 - **`Issuer`**: The display name shown inside authenticator apps (e.g. Google Authenticator, Microsoft Authenticator).
 - **`ProviderName`**: The technical name used to register the provider (defaults to `"Two Factor Authentication"`).
-- **`ForceTwoFactor`**: When `true`, backoffice users without 2FA enabled are automatically prompted to configure 2FA on login, cannot dismiss the setup until enabled, cannot disable their last 2FA provider, and receive `403 Forbidden` on other Management API endpoints until 2FA is enabled (defaults to `false`).
+- **`ForceTwoFactor`**: When `true`, backoffice users without 2FA enabled are prompted on login with a **"Two-Factor Authentication Required"** dialog that takes them straight to QR code setup, cannot dismiss the prompt until 2FA is enabled, cannot disable their last 2FA provider, and receive `403 Forbidden` on other Management API endpoints until 2FA is enabled (defaults to `false`). Changes to this setting in `appsettings.json` are picked up automatically without restarting.
 
 ## Usage in Backoffice
 
@@ -65,3 +65,11 @@ builder.AddMemberTwoFactorAuthentication();
 
 - Umbraco 18+
 - .NET 10+
+
+
+
+
+---
+---
+
+> **Disclaimer:** Use this package at your own risk. It is provided "as is", without warranty of any kind. You are solely responsible for the security, configuration, and testing of your website and Umbraco installation.

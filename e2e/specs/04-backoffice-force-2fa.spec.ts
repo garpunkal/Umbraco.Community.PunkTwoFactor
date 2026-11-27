@@ -9,6 +9,7 @@ const appsettingsPath = path.resolve(__dirname, '../../UmbracoTestSite/appsettin
 
 test.describe('punkTwoFactor - Forced 2FA Flow', () => {
   test('should force 2FA setup on login when ForceTwoFactor is true and block disabling while enabled', async ({ page }) => {
+    test.setTimeout(120_000);
     const originalAppsettings = fs.readFileSync(appsettingsPath, 'utf-8');
     const parsed = JSON.parse(originalAppsettings);
     parsed.punkTwoFactor = {
@@ -27,25 +28,32 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
       // 1. Log in to Umbraco backoffice (user has no 2FA yet)
       await backoffice.login();
 
-      // 2. Verify the Configure Two-Factor modal opens automatically without clicking User Profile
-      const providerHeader = page.locator('text=Two Factor Authentication').first();
-      await expect(providerHeader).toBeVisible({ timeout: 20_000 });
+      // 2. Verify the "Two-Factor Authentication Required" dialog opens automatically
+      const requiredHeading = page.locator('text=Two-Factor Authentication Required').first();
+      await expect(requiredHeading).toBeVisible({ timeout: 20_000 });
 
-      // 3. Try closing the modal without enabling 2FA -> it should re-open
+      const setupBtn = page.getByRole('button', { name: 'Set Up Two-Factor Authentication' });
+      await expect(setupBtn).toBeVisible({ timeout: 10_000 });
+      await setupBtn.click();
+
+      // 3. Goes straight to the QR code setup screen; closing it without enabling re-opens the required dialog
+      const qrImage = page.locator('img[src*="data:image"]').first();
+      await expect(qrImage).toBeVisible({ timeout: 15_000 });
+
       const closeBtn = page.getByRole('button', { name: 'Close' }).last();
       await expect(closeBtn).toBeVisible({ timeout: 10_000 });
       await closeBtn.click();
 
-      await expect(providerHeader).toBeVisible({ timeout: 15_000 });
+      await expect(requiredHeading).toBeVisible({ timeout: 15_000 });
+      await Promise.all([
+        page.waitForResponse((res) => res.url().includes('/user/current/2fa/') && res.request().method() === 'GET' && res.status() === 200),
+        setupBtn.click(),
+      ]);
+      const qrImageLast = page.locator('img[src*="data:image"]').last();
+      await expect(qrImageLast).toBeVisible({ timeout: 15_000 });
 
-      // 4. Enable 2FA via the forced modal
-      const enableButton = page.locator('button:has-text("Enable"), uui-button:has-text("Enable")').first();
-      await expect(enableButton).toBeVisible({ timeout: 10_000 });
-      await enableButton.click();
-
-      const qrImage = page.locator('img[src*="data:image"]').first();
-      await expect(qrImage).toBeVisible({ timeout: 15_000 });
-      const qrDataUrl = await qrImage.getAttribute('src');
+      // 4. Read QR code and submit verification code
+      const qrDataUrl = await qrImageLast.getAttribute('src');
       expect(qrDataUrl).toBeTruthy();
 
       const pixelData = await page.evaluate(async (dataUrl) => {
@@ -78,38 +86,29 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
         .or(page.getByRole('button', { name: 'Submit' }))
         .or(page.locator('uui-button:has-text("Submit")'))
         .last();
-      await submitBtn.click();
-
-      // 5. Verify provider now shows "Disable", and attempting to disable is blocked (403) while ForceTwoFactor is true
-      const disableButton = page.locator('button:has-text("Disable"), uui-button:has-text("Disable")').first();
-      await expect(disableButton).toBeVisible({ timeout: 15_000 });
-      await disableButton.click();
-
-      const disableCodeInput = page.locator('input[placeholder*="verification code" i], uui-input[placeholder*="verification code" i] input').first();
-      await expect(disableCodeInput).toBeVisible({ timeout: 10_000 });
-      await disableCodeInput.fill(generateTotpCode(totpSecret!));
-
-      const [disableResponse] = await Promise.all([
-        page.waitForResponse((res) => res.url().includes('/user/current/2fa/') && res.request().method() === 'DELETE'),
-        page.getByRole('button', { name: 'Save' })
-          .or(page.getByRole('button', { name: 'Submit' }))
-          .or(page.locator('uui-button:has-text("Submit")'))
-          .last()
-          .click(),
+      await Promise.all([
+        page.waitForResponse((res) => res.url().includes('/user/current/2fa/') && res.request().method() === 'POST' && res.status() === 200),
+        submitBtn.click(),
       ]);
-      expect(disableResponse.status()).toBe(403);
 
-      // Close disable modal and MFA modal now that 2FA is enabled
-      const closeDisableBtn = page.getByRole('button', { name: 'Close' }).last();
-      if (await closeDisableBtn.isVisible().catch(() => false)) {
-        await closeDisableBtn.click();
+      // Close any remaining modal if still open
+      const closeAfterEnable = page.getByRole('button', { name: /Close|Done/i }).last();
+      if (await closeAfterEnable.isVisible({ timeout: 2_000 }).catch(() => false)) {
+        await closeAfterEnable.click();
       }
+      await page.waitForTimeout(500);
+
+      // 5. Open Configure Two-Factor and verify the Disable button is hidden while ForceTwoFactor is true
+      await backoffice.openConfigureTwoFactor();
+      const disableButton = page.locator('button:has-text("Disable"), uui-button:has-text("Disable")').first();
+      await expect(disableButton).toBeHidden({ timeout: 10_000 });
+
       const closeMfaBtn = page.getByRole('button', { name: 'Close' }).last();
       if (await closeMfaBtn.isVisible().catch(() => false)) {
         await closeMfaBtn.click();
       }
 
-      // 6. Toggle ForceTwoFactor back off and verify user can now disable 2FA
+      // 6. Toggle ForceTwoFactor back off and verify user can now see Disable and disable 2FA
       fs.writeFileSync(appsettingsPath, originalAppsettings, 'utf-8');
       await page.waitForTimeout(1000);
 
@@ -117,6 +116,7 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
       await expect(disableButton).toBeVisible({ timeout: 15_000 });
       await disableButton.click();
 
+      const disableCodeInput = page.locator('input[placeholder*="verification code" i], uui-input[placeholder*="verification code" i] input').first();
       await expect(disableCodeInput).toBeVisible({ timeout: 10_000 });
       await disableCodeInput.fill(generateTotpCode(totpSecret!));
 

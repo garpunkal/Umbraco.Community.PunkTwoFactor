@@ -47,6 +47,7 @@ namespace punkTwoFactor.Controllers
             {
                 forceTwoFactor = _configMonitor.CurrentValue.ForceTwoFactor,
                 isTwoFactorEnabled = enabledProviders.Any(),
+                providerName = _configMonitor.CurrentValue.ProviderName,
             });
         }
     }
