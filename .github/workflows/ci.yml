@@ -23,16 +23,16 @@ jobs:
       with:
         node-version: 22
         cache: 'npm'
-        cache-dependency-path: e2e/package-lock.json
+        cache-dependency-path: playwright/package-lock.json
     - name: Install Playwright & dependencies
-      working-directory: e2e
+      working-directory: playwright
       run: |
         npm ci
         npx playwright install --with-deps chromium
     - name: Trust .NET dev certificate
       run: dotnet dev-certs https
     - name: Run Playwright Tests
-      working-directory: e2e
+      working-directory: playwright
       run: npm test
       env:
         CI: true
@@ -41,5 +41,5 @@ jobs:
       if: failure()
       with:
         name: playwright-report-ci
-        path: e2e/playwright-report/
+        path: playwright/playwright-report/
         retention-days: 7

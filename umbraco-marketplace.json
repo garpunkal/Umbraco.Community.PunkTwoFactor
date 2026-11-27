@@ -1,8 +1,8 @@
 {
   "Title": "punkTwoFactor",
-  "Description": "A simple Umbraco package that uses the documented implementation from Umbraco.",
+  "Description": "Two-Factor Authentication (2FA) for Umbraco backoffice users using TOTP authenticator apps, with optional ForceTwoFactor enforcement.",
   "Category": "Editor Tools",
-  "Tags": [ "Security", "Authentication", "2FA" ],
+  "Tags": [ "Security", "Authentication", "2FA", "MFA", "TOTP" ],
   "LicenseTypes": [ "Free" ],
   "PackageType": "Package", 
   "AuthorDetails": {

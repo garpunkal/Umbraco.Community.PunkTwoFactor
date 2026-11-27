@@ -31,10 +31,10 @@ Automated end-to-end test suite for `punkTwoFactor` in Umbraco Backoffice using 
 
 ### 1. Install Dependencies
 
-From the `e2e/` folder:
+From the `playwright/` folder:
 
 ```bash
-cd e2e
+cd playwright
 npm install
 npx playwright install chromium
 ```
