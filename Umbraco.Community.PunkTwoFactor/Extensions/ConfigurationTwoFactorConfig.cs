@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Models;
 
-namespace punkTwoFactor.Extensions
+namespace Umbraco.Community.PunkTwoFactor.Extensions
 {
     public static class ConfigurationTwoFactorConfig
     {

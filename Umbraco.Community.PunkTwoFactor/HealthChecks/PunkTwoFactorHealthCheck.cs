@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.HealthChecks;
 
-namespace punkTwoFactor.HealthChecks
+namespace Umbraco.Community.PunkTwoFactor.HealthChecks
 {
     /// <summary>
     /// Umbraco Health Check reporting the current <see cref="TwoFactorConfig.ForceTwoFactor"/> configuration.

@@ -1,13 +1,13 @@
 using Google.Authenticator;
 using Microsoft.Extensions.Options;
 using Moq;
-using punkTwoFactor.Models;
-using punkTwoFactor.Providers;
+using Umbraco.Community.PunkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Providers;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Cms.Core.Services;
 using Xunit;
 
-namespace punkTwoFactor.Tests;
+namespace Umbraco.Community.PunkTwoFactor.Tests;
 
 public class UmbracoUserAppAuthenticatorTests
 {

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using punkTwoFactor.Extensions;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Extensions;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 
-namespace punkTwoFactor.Middleware
+namespace Umbraco.Community.PunkTwoFactor.Middleware
 {
     /// <summary>
     /// Enforces two-factor authentication on Umbraco Management API requests when <see cref="TwoFactorConfig.ForceTwoFactor"/> is enabled.

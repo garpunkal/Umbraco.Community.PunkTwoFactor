@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.Models.Membership;
 
-namespace punkTwoFactor.Extensions
+namespace Umbraco.Community.PunkTwoFactor.Extensions
 {
     internal static class TwoFactorEnforcementHelper
     {

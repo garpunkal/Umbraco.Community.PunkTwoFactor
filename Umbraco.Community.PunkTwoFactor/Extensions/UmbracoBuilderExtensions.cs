@@ -1,11 +1,11 @@
 using Microsoft.Extensions.DependencyInjection;
-using punkTwoFactor.Models;
-using punkTwoFactor.Providers;
+using Umbraco.Community.PunkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Providers;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Extensions;
 
-namespace punkTwoFactor.Extensions
+namespace Umbraco.Community.PunkTwoFactor.Extensions
 {
     public static class UmbracoBuilderExtensions
     {

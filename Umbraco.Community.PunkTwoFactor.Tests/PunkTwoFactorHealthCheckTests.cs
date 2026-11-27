@@ -1,11 +1,11 @@
 using Microsoft.Extensions.Options;
 using Moq;
-using punkTwoFactor.HealthChecks;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.HealthChecks;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.HealthChecks;
 using Xunit;
 
-namespace punkTwoFactor.Tests;
+namespace Umbraco.Community.PunkTwoFactor.Tests;
 
 public class PunkTwoFactorHealthCheckTests
 {

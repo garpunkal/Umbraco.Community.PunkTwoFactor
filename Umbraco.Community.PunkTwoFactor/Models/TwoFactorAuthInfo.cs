@@ -1,7 +1,7 @@
 using System.Runtime.Serialization;
 using Umbraco.Cms.Core.Security;
 
-namespace punkTwoFactor.Models
+namespace Umbraco.Community.PunkTwoFactor.Models
 {
     [DataContract]
     public class TwoFactorAuthInfo : ISetupTwoFactorModel

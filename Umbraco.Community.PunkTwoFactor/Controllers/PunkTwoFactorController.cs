@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using punkTwoFactor.Extensions;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Extensions;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.Common.Authorization;
 
-namespace punkTwoFactor.Controllers
+namespace Umbraco.Community.PunkTwoFactor.Controllers
 {
     /// <summary>
     /// Exposes the current two-factor enforcement status for the authenticated backoffice user.

@@ -1,6 +1,6 @@
 using System;
 
-namespace punkTwoFactor.Models
+namespace Umbraco.Community.PunkTwoFactor.Models
 {
     public class TwoFactorConfig
     {

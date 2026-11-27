@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using punkTwoFactor.Middleware;
-using punkTwoFactor.Models;
-using punkTwoFactor.Providers;
+using Umbraco.Community.PunkTwoFactor.Middleware;
+using Umbraco.Community.PunkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Providers;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 using Umbraco.Extensions;
 
-namespace punkTwoFactor.Composers
+namespace Umbraco.Community.PunkTwoFactor.Composers
 {
     public class PunkTwoFactorComposer : IComposer
     {

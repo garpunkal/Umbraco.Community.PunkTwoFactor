@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Moq;
-using punkTwoFactor.Controllers;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Controllers;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 using Xunit;
 
-namespace punkTwoFactor.Tests;
+namespace Umbraco.Community.PunkTwoFactor.Tests;
 
 public class PunkTwoFactorControllerTests
 {

@@ -1,13 +1,13 @@
 using Google.Authenticator;
 using Microsoft.Extensions.Options;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Models;
 using System;
 using System.Threading.Tasks;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 
-namespace punkTwoFactor.Providers
+namespace Umbraco.Community.PunkTwoFactor.Providers
 {
     public class UmbracoUserAppAuthenticator : ITwoFactorProvider
     {

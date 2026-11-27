@@ -11,7 +11,7 @@
 		<Title>Umbraco.Community.PunkTwoFactor</Title>
 		<Description>An app_plugin for Umbraco that sets up Two Factor Authentication.</Description>
 		<PackageTags>umbraco;umbraco-marketplace;2fa;two-factor-authentication</PackageTags>
-		<RootNamespace>punkTwoFactor</RootNamespace>
+		<RootNamespace>Umbraco.Community.PunkTwoFactor</RootNamespace>
 		<Authors>Gareth Wright</Authors>
 		<PackageProjectUrl>https://github.com/garpunkal/Umbraco.Community.PunkTwoFactor</PackageProjectUrl>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>

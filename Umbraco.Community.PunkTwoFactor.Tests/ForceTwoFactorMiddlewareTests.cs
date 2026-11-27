@@ -2,14 +2,14 @@ using System.Net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Moq;
-using punkTwoFactor.Middleware;
-using punkTwoFactor.Models;
+using Umbraco.Community.PunkTwoFactor.Middleware;
+using Umbraco.Community.PunkTwoFactor.Models;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 using Xunit;
 
-namespace punkTwoFactor.Tests;
+namespace Umbraco.Community.PunkTwoFactor.Tests;
 
 public class ForceTwoFactorMiddlewareTests
 {
