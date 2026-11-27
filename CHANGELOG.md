@@ -3,6 +3,8 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+
+## [18.3.2.9] - 2026-11-27
 - Use absolute GitHub raw URLs for screenshots in `README.md` so they render on NuGet.org.
 
 ## [18.3.2.8] - 2026-11-27
