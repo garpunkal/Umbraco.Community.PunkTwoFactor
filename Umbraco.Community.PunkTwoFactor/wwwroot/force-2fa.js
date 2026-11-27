@@ -89,15 +89,18 @@ if (!customElements.get('punk-force-2fa-modal')) {
  * @returns {Promise<{ forceTwoFactor: boolean, isTwoFactorEnabled: boolean } | null>}
  */
 async function fetchTwoFactorStatus(authContext) {
-  const token = await authContext.getLatestToken();
-  if (!token) {
-    return null;
+  const headers = {};
+  if (typeof authContext.getLatestToken === 'function') {
+    const token = await authContext.getLatestToken();
+    if (!token) {
+      return null;
+    }
+    headers.Authorization = `Bearer ${token}`;
   }
 
   const response = await fetch('/umbraco/management/api/v1/punk-two-factor/status', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    credentials: 'include',
+    headers,
   });
 
   if (!response.ok) {

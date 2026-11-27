@@ -115,6 +115,12 @@ namespace Umbraco.Community.PunkTwoFactor.Middleware
                 return true;
             }
 
+            if (path.Equals("/umbraco/management/api/v1/user/current/configuration", StringComparison.OrdinalIgnoreCase) &&
+                HttpMethods.IsGet(method))
+            {
+                return true;
+            }
+
             if (path.StartsWith("/umbraco/management/api/v1/user/current/2fa", StringComparison.OrdinalIgnoreCase) &&
                 (HttpMethods.IsGet(method) || HttpMethods.IsPost(method)))
             {

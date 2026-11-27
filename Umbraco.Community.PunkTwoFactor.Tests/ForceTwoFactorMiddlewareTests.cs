@@ -77,6 +77,7 @@ public class ForceTwoFactorMiddlewareTests
     [InlineData("/umbraco/management/api/v1/document/root", "GET", false)]
     [InlineData("/umbraco/management/api/v1/punk-two-factor/status", "GET", true)]
     [InlineData("/umbraco/management/api/v1/user/current", "GET", true)]
+    [InlineData("/umbraco/management/api/v1/user/current/configuration", "GET", true)]
     [InlineData("/umbraco/management/api/v1/user/current/2fa", "GET", true)]
     [InlineData("/umbraco/management/api/v1/user/current/2fa/Two%20Factor%20Authentication", "POST", true)]
     [InlineData("/umbraco/management/api/v1/security/back-office/token", "POST", true)]
