@@ -3,6 +3,8 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+
+## [18.3.2.6] - 2026-11-27
 - Changed root namespace and C# namespaces from `punkTwoFactor.*` to `Umbraco.Community.PunkTwoFactor.*`.
 - Changed `appsettings.json` configuration section key from `"punkTwoFactor"` to `"Umbraco.Community.PunkTwoFactor"`.
 - Renamed solution, projects, repository, and documentation references to `Umbraco.Community.PunkTwoFactor`.
