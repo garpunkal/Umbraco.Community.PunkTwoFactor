@@ -4,7 +4,7 @@ namespace punkTwoFactor.Models
 {
     public class TwoFactorConfig
     {
-        public const string ConfigName = "punkTwoFactor";
+        public const string ConfigName = "Umbraco.Community.PunkTwoFactor";
 
         public string ProviderName { get; set; } = "Two Factor Authentication";
         public string Issuer { get; set; } = "Umbraco Two Factor Authentication";

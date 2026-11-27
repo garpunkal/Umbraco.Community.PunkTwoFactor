@@ -45,7 +45,7 @@ namespace punkTwoFactor.HealthChecks
 
             return Task.FromResult<IEnumerable<HealthCheckStatus>>(
             [
-                new HealthCheckStatus($"ForceTwoFactor is currently disabled (opt-in mode) for provider '{config.ProviderName}'. Set punkTwoFactor:ForceTwoFactor to true in appsettings.json to require 2FA for all backoffice users.")
+                new HealthCheckStatus($"ForceTwoFactor is currently disabled (opt-in mode) for provider '{config.ProviderName}'. Set Umbraco.Community.PunkTwoFactor:ForceTwoFactor to true in appsettings.json to require 2FA for all backoffice users.")
                 {
                     ResultType = StatusResultType.Info,
                 },

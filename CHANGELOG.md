@@ -3,6 +3,7 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Changed `appsettings.json` configuration section key from `"punkTwoFactor"` to `"Umbraco.Community.PunkTwoFactor"`.
 - Renamed solution, projects, repository, and documentation references to `Umbraco.Community.PunkTwoFactor`.
 - Changed NuGet `<PackageId>` to `Umbraco.Community.PunkTwoFactor`.
 - Updated screenshots in `screenshots/`, `README.md`, and `umbraco-marketplace.json` with live Umbraco 18 Playwright captures.

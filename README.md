@@ -39,7 +39,7 @@ By default, the issuer name shown in authenticator apps is `"Umbraco Two Factor 
 
 ```json
 {
-    "punkTwoFactor": {
+    "Umbraco.Community.PunkTwoFactor": {
         "Issuer": "garpunkal.dev",
         "ProviderName": "Two Factor Authentication"
     }
@@ -52,7 +52,7 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 
 ```json
 {
-    "punkTwoFactor": {
+    "Umbraco.Community.PunkTwoFactor": {
         "ForceTwoFactor": true,
         "ExemptUserGroups": ["writer"]
     }
