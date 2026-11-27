@@ -23,7 +23,7 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
     try {
       // Enable ForceTwoFactor dynamically (IOptionsMonitor reloads appsettings.json)
       fs.writeFileSync(appsettingsPath, JSON.stringify(parsed, null, 2), 'utf-8');
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(1500);
 
       // 1. Log in to Umbraco backoffice (user has no 2FA yet)
       await backoffice.login();
@@ -78,6 +78,11 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
       totpSecret = extractSecretFromOtpAuthUri(qrResult!.data);
       expect(totpSecret).toBeTruthy();
 
+      // Avoid 30-second TOTP window boundary rollover
+      if (Math.floor(Date.now() / 1000) % 30 >= 27) {
+        await page.waitForTimeout(3500);
+      }
+
       const codeInput = page.getByRole('textbox', { name: /verification code/i });
       await codeInput.scrollIntoViewIfNeeded();
       await codeInput.fill(generateTotpCode(totpSecret!));
@@ -114,8 +119,17 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
 
       // 6. Toggle ForceTwoFactor back off and verify user can now see Disable and disable 2FA
       fs.writeFileSync(appsettingsPath, originalAppsettings, 'utf-8');
-      await page.waitForTimeout(1000);
-      await page.reload();
+      for (let attempt = 0; attempt < 5; attempt++) {
+        await page.waitForTimeout(1000);
+        const [statusRes] = await Promise.all([
+          page.waitForResponse((res) => res.url().includes('/punk-two-factor/status') && res.status() === 200),
+          page.reload(),
+        ]);
+        const statusJson = await statusRes.json();
+        if (!statusJson.forceTwoFactor) {
+          break;
+        }
+      }
 
       await backoffice.openConfigureTwoFactor();
       await expect(disableButton).toBeVisible({ timeout: 15_000 });
