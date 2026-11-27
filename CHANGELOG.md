@@ -3,6 +3,8 @@
 All notable changes to `punkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+
+## [18.3.2.5] - 2026-11-27
 - Renamed `UmbracoTestSite` to `punkTwoFactor.Umbraco`.
 - Parallelized GitHub Actions CI and release workflows and added `.github/copilot-instructions.md`.
 
