@@ -96,40 +96,23 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
         submitBtn.click(),
       ]);
 
-      // Close any remaining modal if still open
+      // Close any remaining modal if still open and wait for forced dialog to clear
       const closeAfterEnable = page.getByRole('button', { name: /Close|Done/i }).last();
       if (await closeAfterEnable.isVisible({ timeout: 2_000 }).catch(() => false)) {
         await closeAfterEnable.click();
       }
-      await page.waitForTimeout(500);
+      await expect(requiredHeading).toBeHidden({ timeout: 15_000 });
 
       // 5. Open Configure Two-Factor and verify the Disable button is hidden while ForceTwoFactor is true
       await backoffice.openConfigureTwoFactor();
       const disableButton = page.locator('button:has-text("Disable"), uui-button:has-text("Disable")').first();
       await expect(disableButton).toBeHidden({ timeout: 10_000 });
 
-      const closeMfaBtn = page.getByRole('button', { name: 'Close' }).last();
-      if (await closeMfaBtn.isVisible().catch(() => false)) {
-        await closeMfaBtn.click();
-      }
-      const closeProfileBtn = page.getByRole('button', { name: 'Close' }).last();
-      if (await closeProfileBtn.isVisible().catch(() => false)) {
-        await closeProfileBtn.click();
-      }
-
       // 6. Toggle ForceTwoFactor back off and verify user can now see Disable and disable 2FA
       fs.writeFileSync(appsettingsPath, originalAppsettings, 'utf-8');
-      for (let attempt = 0; attempt < 5; attempt++) {
-        await page.waitForTimeout(1000);
-        const [statusRes] = await Promise.all([
-          page.waitForResponse((res) => res.url().includes('/punk-two-factor/status') && res.status() === 200),
-          page.reload(),
-        ]);
-        const statusJson = await statusRes.json();
-        if (!statusJson.forceTwoFactor) {
-          break;
-        }
-      }
+      await page.waitForTimeout(2000);
+      await page.goto('/umbraco');
+      await page.waitForLoadState('domcontentloaded');
 
       await backoffice.openConfigureTwoFactor();
       await expect(disableButton).toBeVisible({ timeout: 15_000 });
