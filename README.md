@@ -3,7 +3,6 @@
 [![NuGet release](https://img.shields.io/nuget/v/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Umbraco.Community.PunkTwoFactor.svg)](https://www.nuget.org/packages/Umbraco.Community.PunkTwoFactor/)
 [![CI](https://github.com/garpunkal/Umbraco.Community.PunkTwoFactor/actions/workflows/ci.yml/badge.svg)](https://github.com/garpunkal/Umbraco.Community.PunkTwoFactor/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/garpunkal/Umbraco.Community.PunkTwoFactor/branch/main/graph/badge.svg)](https://codecov.io/gh/garpunkal/Umbraco.Community.PunkTwoFactor)
 [![License: MIT](https://img.shields.io/github/license/garpunkal/Umbraco.Community.PunkTwoFactor.svg)](LICENSE)
 
 Two-Factor Authentication (2FA) for Umbraco backoffice users.

@@ -4,6 +4,10 @@ All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this 
 
 ## [Unreleased]
 
+## [18.3.2.7] - 2026-11-27
+- Fixed `release.yml` `origin/main` ancestry check using full checkout (`fetch-depth: 0`) and `git merge-base`.
+- Removed Codecov badge from `README.md`.
+
 ## [18.3.2.6] - 2026-11-27
 - Changed root namespace and C# namespaces from `punkTwoFactor.*` to `Umbraco.Community.PunkTwoFactor.*`.
 - Changed `appsettings.json` configuration section key from `"punkTwoFactor"` to `"Umbraco.Community.PunkTwoFactor"`.
