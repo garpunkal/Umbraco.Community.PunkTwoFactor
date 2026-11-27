@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using punkTwoFactor.Middleware;
 using punkTwoFactor.Models;
 using punkTwoFactor.Providers;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Security;
+using Umbraco.Cms.Web.Common.ApplicationBuilder;
 using Umbraco.Extensions;
 
 namespace punkTwoFactor.Composers
@@ -20,6 +23,13 @@ namespace punkTwoFactor.Composers
 
             var identityBuilder = new BackOfficeIdentityBuilder(builder.Services);
             identityBuilder.AddTwoFactorProvider<UmbracoUserAppAuthenticator>(twoFactorConfig.ProviderName);
+
+            builder.Services.Configure<UmbracoPipelineOptions>(options =>
+            {
+                options.AddFilter(new UmbracoPipelineFilter(
+                    "PunkTwoFactor",
+                    postPipeline: app => app.UseMiddleware<ForceTwoFactorMiddleware>()));
+            });
         }
     }
 }

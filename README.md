@@ -29,12 +29,14 @@ Optionally add the following section to your `appsettings.json` to customize the
 ```json
 "punkTwoFactor": {
   "ProviderName": "Two Factor Authentication",
-  "Issuer": "My Umbraco Site"
+  "Issuer": "My Umbraco Site",
+  "ForceTwoFactor": false
 }
 ```
 
 - **`Issuer`**: The display name shown inside authenticator apps (e.g. Google Authenticator, Microsoft Authenticator).
 - **`ProviderName`**: The technical name used to register the provider (defaults to `"Two Factor Authentication"`).
+- **`ForceTwoFactor`**: When `true`, backoffice users without 2FA enabled are automatically prompted to configure 2FA on login, cannot dismiss the setup until enabled, cannot disable their last 2FA provider, and receive `403 Forbidden` on other Management API endpoints until 2FA is enabled (defaults to `false`).
 
 ## Usage in Backoffice
 

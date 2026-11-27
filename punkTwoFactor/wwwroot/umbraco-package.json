@@ -2,7 +2,7 @@
   "$schema": "../../umbraco-package-schema.json",
   "id": "punkTwoFactor",
   "name": "punkTwoFactor",
-  "version": "18.0.0",
+  "version": "18.1.0",
   "extensions": [
     {
       "type": "mfaLoginProvider",
@@ -12,6 +12,12 @@
       "meta": {
         "label": "Two Factor Authentication"
       }
+    },
+    {
+      "type": "backofficeEntryPoint",
+      "alias": "punkTwoFactor.ForceTwoFactor",
+      "name": "punkTwoFactor Force Two-Factor EntryPoint",
+      "js": "/App_Plugins/punkTwoFactor/force-2fa.js"
     }
   ]
 }
