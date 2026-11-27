@@ -3,6 +3,8 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+
+## [18.3.2.10] - 2026-11-27
 - Added multi-targeting (`net10.0;net11.0`) to support Umbraco 17, 18, and 19 (RC2+).
 - Allowed `GET /umbraco/management/api/v1/user/current/configuration` in `ForceTwoFactorMiddleware` for Umbraco 19 backoffice bootstrap.
 - Updated `force-2fa.js` to use `credentials: 'include'` (cookie auth) with optional `getLatestToken()` fallback for Umbraco 18/19 compatibility.

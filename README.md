@@ -66,8 +66,11 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 
 ## Compatibility
 
-- Umbraco 17, 18, and 19 (RC2+)
-- .NET 10 and .NET 11
+| Umbraco Version | .NET Target Framework |
+| --- | --- |
+| Umbraco 17 | .NET 10 (`net10.0`) |
+| Umbraco 18 | .NET 10 (`net10.0`) |
+| Umbraco 19 (RC2+) | .NET 11 (`net11.0`) |
 
 ---
 
