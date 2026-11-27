@@ -3,6 +3,8 @@
 All notable changes to `punkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Renamed `UmbracoTestSite` to `punkTwoFactor.Umbraco`.
+- Parallelized GitHub Actions CI and release workflows and added `.github/copilot-instructions.md`.
 
 ## [18.3.2.4] - 2026-11-27
 - Added `.slnx` solution format, xUnit unit tests (`punkTwoFactor.Tests`), `.editorconfig`, ESLint, TypeScript checks, Codecov, Gitleaks, and Dependabot.

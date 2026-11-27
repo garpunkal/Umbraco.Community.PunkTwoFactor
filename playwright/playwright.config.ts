@@ -30,9 +30,9 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'on-first-retry',
   },
-  // Automatically boots UmbracoTestSite if not already running
+  // Automatically boots punkTwoFactor.Umbraco if not already running
   webServer: {
-    command: 'dotnet run --project ../UmbracoTestSite',
+    command: 'dotnet run --project ../punkTwoFactor.Umbraco',
     url: `${baseURL}/umbraco`,
     reuseExistingServer: !process.env.CI,
     ignoreHTTPSErrors: true,
