@@ -3,6 +3,7 @@
 All notable changes to `punkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Updated screenshots in `screenshots/`, `README.md`, and `umbraco-marketplace.json` with live Umbraco 18 Playwright captures.
 
 ## [18.3.2.5] - 2026-11-27
 - Renamed `UmbracoTestSite` to `punkTwoFactor.Umbraco`.

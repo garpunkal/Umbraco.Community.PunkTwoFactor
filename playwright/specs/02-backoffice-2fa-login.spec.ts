@@ -21,6 +21,9 @@ test.describe('punkTwoFactor - Login Verification Flow', () => {
     // 2. Verify 2FA challenge screen appears
     const validateBtn = page.getByRole('button', { name: 'Validate' });
     await expect(validateBtn).toBeVisible({ timeout: 15_000 });
+    if (process.env.CAPTURE_SCREENSHOTS === 'true') {
+      await page.screenshot({ path: '../screenshots/2fa-login.png' });
+    }
 
     const codeInput = page.locator('#mfacode input, input[name="token"], uui-input input').first();
 

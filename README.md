@@ -1,7 +1,5 @@
 # punkTwoFactor
 
-![punkTwoFactor - Two Factor Authentication for Umbraco](screenshots/thumbnail.png)
-
 [![NuGet release](https://img.shields.io/nuget/v/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
 [![CI](https://github.com/garpunkal/punkTwoFactor/actions/workflows/ci.yml/badge.svg)](https://github.com/garpunkal/punkTwoFactor/actions/workflows/ci.yml)
@@ -42,7 +40,7 @@ By default, the issuer name shown in authenticator apps is `"Umbraco Two Factor 
 ```json
 {
     "punkTwoFactor": {
-        "Issuer": "My Umbraco Site",
+        "Issuer": "garpunkal.dev",
         "ProviderName": "Two Factor Authentication"
     }
 }
@@ -71,6 +69,19 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 
 - Umbraco 18+
 - .NET 10+
+
+---
+
+## Screenshots
+
+### Forced 2FA Prompt
+![Forced Two-Factor Authentication Prompt](screenshots/force-2fa-modal.png)
+
+### QR Code Setup
+![Umbraco Backoffice QR Code Setup](screenshots/qr-modal.png)
+
+### 2FA Login Verification
+![Two-Factor Authentication Login Verification](screenshots/2fa-login.png)
 
 ---
 

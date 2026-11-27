@@ -17,6 +17,10 @@ test.describe('punkTwoFactor - Forced 2FA Flow', () => {
       // 2. Verify the "Two-Factor Authentication Required" dialog opens automatically
       const requiredHeading = page.locator('text=Two-Factor Authentication Required').first();
       await expect(requiredHeading).toBeVisible({ timeout: 20_000 });
+      if (process.env.CAPTURE_SCREENSHOTS === 'true') {
+        await page.waitForTimeout(300);
+        await page.screenshot({ path: '../screenshots/force-2fa-modal.png' });
+      }
 
       const setupBtn = page.getByRole('button', { name: 'Set Up Two-Factor Authentication' });
       await expect(setupBtn).toBeVisible({ timeout: 10_000 });

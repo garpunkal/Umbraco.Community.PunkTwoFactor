@@ -22,6 +22,10 @@ test.describe('punkTwoFactor - Setup Flow', () => {
     await enableButton.click();
 
     // 5. Decode QR code, submit TOTP code, and persist secret for login/disable specs
+    if (process.env.CAPTURE_SCREENSHOTS === 'true') {
+      await page.locator('img[src*="data:image"]').first().waitFor({ state: 'visible', timeout: 15_000 });
+      await page.screenshot({ path: '../screenshots/qr-modal.png' });
+    }
     const capturedSecret = await backoffice.enroll2FAFromQr();
     saveTestState({
       totpSecret: capturedSecret,
