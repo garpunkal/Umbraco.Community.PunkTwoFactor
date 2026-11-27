@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFramework>net11.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<StaticWebAssetBasePath>App_Plugins/punkTwoFactor</StaticWebAssetBasePath>
@@ -28,10 +28,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="GoogleAuthenticator" Version="3.2.0" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="18.3.2" />
-		<PackageReference Include="Umbraco.Cms.Api.Management" Version="18.3.2" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="18.3.2" />
-		<PackageReference Include="Umbraco.Cms.Web.Common" Version="18.3.2" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="19.0.0-rc2" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" Version="19.0.0-rc2" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="19.0.0-rc2" />
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="19.0.0-rc2" />
 	</ItemGroup>
 
 	<ItemGroup>
