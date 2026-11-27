@@ -13,19 +13,19 @@
   },
   "Screenshots": [
     {
-      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/punkTwoFactor/main/screenshots/force-2fa-modal.png",
+      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/force-2fa-modal.png",
       "Caption": "Forced Two-Factor Authentication Prompt in Umbraco Backoffice"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/punkTwoFactor/main/screenshots/qr-modal.png",
+      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/qr-modal.png",
       "Caption": "Umbraco Backoffice QR Code Scan and Verification Modal"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/punkTwoFactor/main/screenshots/2fa-login.png",
+      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/Umbraco.Community.PunkTwoFactor/main/screenshots/2fa-login.png",
       "Caption": "Two-Factor Authentication Login Verification Screen"
     }
   ],
-  "DocumentationUrl": "https://github.com/garpunkal/punkTwoFactor",
-  "IssueTrackerUrl": "https://github.com/garpunkal/punkTwoFactor/issues"
+  "DocumentationUrl": "https://github.com/garpunkal/Umbraco.Community.PunkTwoFactor",
+  "IssueTrackerUrl": "https://github.com/garpunkal/Umbraco.Community.PunkTwoFactor/issues"
 }
 

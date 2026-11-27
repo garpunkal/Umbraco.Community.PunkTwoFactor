@@ -104,4 +104,4 @@ jobs:
         with:
           user: garpunkal
       - name: Push
-        run: dotnet nuget push punkTwoFactor.${VERSION}.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push Umbraco.Community.PunkTwoFactor.${VERSION}.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
