@@ -4,6 +4,9 @@ All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this 
 
 ## [Unreleased]
 
+## [18.3.2.11] - 2026-11-27
+- Scoped stable NuGet package target to `net10.0` (Umbraco 17 and 18) until Umbraco 19.0.0 GA is released (`NU5104`).
+
 ## [18.3.2.10] - 2026-11-27
 - Added multi-targeting (`net10.0;net11.0`) to support Umbraco 17, 18, and 19 (RC2+).
 - Allowed `GET /umbraco/management/api/v1/user/current/configuration` in `ForceTwoFactorMiddleware` for Umbraco 19 backoffice bootstrap.

@@ -2,7 +2,7 @@
   "$schema": "../../umbraco-package-schema.json",
   "id": "punkTwoFactor",
   "name": "punkTwoFactor",
-  "version": "18.3.2.10",
+  "version": "18.3.2.11",
   "extensions": [
     {
       "type": "mfaLoginProvider",

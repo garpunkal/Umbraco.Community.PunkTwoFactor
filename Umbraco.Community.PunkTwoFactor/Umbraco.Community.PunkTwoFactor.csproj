@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net10.0;net11.0</TargetFrameworks>
+		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<StaticWebAssetBasePath>App_Plugins/punkTwoFactor</StaticWebAssetBasePath>
-		<Version>18.3.2.10</Version>
+		<Version>18.3.2.11</Version>
 		<Product>Umbraco.Community.PunkTwoFactor</Product>
 		<PackageId>Umbraco.Community.PunkTwoFactor</PackageId>
 		<Title>Umbraco.Community.PunkTwoFactor</Title>
@@ -28,20 +28,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="GoogleAuthenticator" Version="3.2.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
 		<PackageReference Include="Umbraco.Cms.Core" Version="[17.0.0, 19.0.0)" />
 		<PackageReference Include="Umbraco.Cms.Api.Management" Version="[17.0.0, 19.0.0)" />
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[17.0.0, 19.0.0)" />
 		<PackageReference Include="Umbraco.Cms.Web.Common" Version="[17.0.0, 19.0.0)" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
-		<PackageReference Include="Umbraco.Cms.Core" Version="[19.0.0-rc2, 20.0.0)" />
-		<PackageReference Include="Umbraco.Cms.Api.Management" Version="[19.0.0-rc2, 20.0.0)" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[19.0.0-rc2, 20.0.0)" />
-		<PackageReference Include="Umbraco.Cms.Web.Common" Version="[19.0.0-rc2, 20.0.0)" />
 	</ItemGroup>
 
 	<ItemGroup>
