@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="punkTwoFactor/punkTwoFactor.csproj" />
+  <Project Path="punkTwoFactor.Tests/punkTwoFactor.Tests.csproj" />
+  <Project Path="UmbracoTestSite/UmbracoTestSite.csproj" />
+</Solution>

@@ -18,6 +18,7 @@ namespace punkTwoFactor.Extensions
                 options.ProviderName = config.ProviderName;
                 options.Issuer = config.Issuer;
                 options.ForceTwoFactor = config.ForceTwoFactor;
+                options.ExemptUserGroups = config.ExemptUserGroups ?? [];
             });
 
             var identityBuilder = new BackOfficeIdentityBuilder(builder.Services);
@@ -35,6 +36,7 @@ namespace punkTwoFactor.Extensions
                 options.ProviderName = config.ProviderName;
                 options.Issuer = config.Issuer;
                 options.ForceTwoFactor = config.ForceTwoFactor;
+                options.ExemptUserGroups = config.ExemptUserGroups ?? [];
             });
 
             var identityBuilder = new MemberIdentityBuilder(builder.Services);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using punkTwoFactor.Extensions;
 using punkTwoFactor.Models;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
@@ -60,7 +61,7 @@ namespace punkTwoFactor.Middleware
             }
 
             var currentUser = backOfficeSecurityAccessor.BackOfficeSecurity?.CurrentUser;
-            if (currentUser == null)
+            if (currentUser == null || TwoFactorEnforcementHelper.IsUserExempt(currentUser, _configMonitor.CurrentValue))
             {
                 await _next(context);
                 return;

@@ -3,6 +3,10 @@
 ![punkTwoFactor - Two Factor Authentication for Umbraco](screenshots/thumbnail.png)
 
 [![NuGet release](https://img.shields.io/nuget/v/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
+[![NuGet downloads](https://img.shields.io/nuget/dt/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
+[![CI](https://github.com/garpunkal/punkTwoFactor/actions/workflows/ci.yml/badge.svg)](https://github.com/garpunkal/punkTwoFactor/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/garpunkal/punkTwoFactor/branch/main/graph/badge.svg)](https://codecov.io/gh/garpunkal/punkTwoFactor)
+[![License: MIT](https://img.shields.io/github/license/garpunkal/punkTwoFactor.svg)](LICENSE)
 
 Two-Factor Authentication (2FA) for Umbraco backoffice users.
 
@@ -37,10 +41,10 @@ By default, the issuer name shown in authenticator apps is `"Umbraco Two Factor 
 
 ```json
 {
-  "punkTwoFactor": {
-    "Issuer": "My Umbraco Site",
-    "ProviderName": "Two Factor Authentication"
-  }
+    "punkTwoFactor": {
+        "Issuer": "My Umbraco Site",
+        "ProviderName": "Two Factor Authentication"
+    }
 }
 ```
 
@@ -50,22 +54,25 @@ By default, 2FA is opt-in per user. To require 2FA for all backoffice users, set
 
 ```json
 {
-  "punkTwoFactor": {
-    "ForceTwoFactor": true
-  }
+    "punkTwoFactor": {
+        "ForceTwoFactor": true,
+        "ExemptUserGroups": ["writer"]
+    }
 }
 ```
 
-* **Behavior:** Users without 2FA enabled are prompted immediately on login with a **"Two-Factor Authentication Required"** dialog that takes them straight to QR code setup. Management API endpoints return `403 Forbidden` and the **Disable** button is hidden until 2FA is enabled.
-* **Live toggle:** Changes to `ForceTwoFactor` in `appsettings.json` are picked up automatically without restarting the site.
+- **Behavior:** Users without 2FA enabled are prompted immediately on login with a **"Two-Factor Authentication Required"** dialog that takes them straight to QR code setup. Management API endpoints return `403 Forbidden` and the **Disable** button is hidden until 2FA is enabled.
+- **Exemptions:** Optionally list Umbraco user group aliases in `ExemptUserGroups` to exclude specific groups from `ForceTwoFactor`.
+- **Live toggle:** Changes to `ForceTwoFactor` in `appsettings.json` are picked up automatically without restarting the site.
 
 ---
 
 ## Compatibility
 
-* Umbraco 18+
-* .NET 10+
+- Umbraco 18+
+- .NET 10+
 
 ---
 
 > **Disclaimer:** Use this package at your own risk. It is provided "as is", without warranty of any kind. You are solely responsible for the security, configuration, and testing of your website and Umbraco installation.
+

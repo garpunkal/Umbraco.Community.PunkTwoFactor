@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using punkTwoFactor.Extensions;
 using punkTwoFactor.Models;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
@@ -42,12 +43,14 @@ namespace punkTwoFactor.Controllers
                 return Unauthorized();
             }
 
+            var config = _configMonitor.CurrentValue;
+            var isEnforcedForUser = config.ForceTwoFactor && !TwoFactorEnforcementHelper.IsUserExempt(currentUser, config);
             var enabledProviders = await _twoFactorLoginService.GetEnabledTwoFactorProviderNamesAsync(currentUser.Key);
             return Ok(new
             {
-                forceTwoFactor = _configMonitor.CurrentValue.ForceTwoFactor,
+                forceTwoFactor = isEnforcedForUser,
                 isTwoFactorEnabled = enabledProviders.Any(),
-                providerName = _configMonitor.CurrentValue.ProviderName,
+                providerName = config.ProviderName,
             });
         }
     }

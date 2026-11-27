@@ -1,4 +1,6 @@
 import { Page, Locator, expect } from '@playwright/test';
+import jsQR from 'jsqr';
+import { extractSecretFromOtpAuthUri, generateTotpCode } from './totp';
 
 export interface UmbracoCredentials {
   username?: string;
@@ -107,5 +109,86 @@ export class UmbracoBackofficePage {
    */
   getTwoFactorProviderCard(providerLabel = 'Two Factor Authentication'): Locator {
     return this.page.locator(`text=${providerLabel}`).locator('xpath=ancestor::*[contains(@class, "provider") or contains(@class, "card") or self::tr or contains(@class, "item") or contains(@class, "row")][1]');
+  }
+
+  /**
+   * Decodes the visible 2FA QR code, submits a valid TOTP code, and returns the TOTP secret.
+   */
+  async enroll2FAFromQr(qrImage?: Locator): Promise<string> {
+    const qr = qrImage ?? this.page.locator('img[src*="data:image"]').first();
+    await expect(qr).toBeVisible({ timeout: 15_000 });
+
+    const qrDataUrl = await qr.getAttribute('src');
+    expect(qrDataUrl).toBeTruthy();
+
+    const pixelData = await this.page.evaluate(async (dataUrl) => {
+      return new Promise<{ width: number; height: number; data: number[] }>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d')!;
+          ctx.drawImage(img, 0, 0);
+          const imgData = ctx.getImageData(0, 0, img.width, img.height);
+          resolve({
+            width: img.width,
+            height: img.height,
+            data: Array.from(imgData.data),
+          });
+        };
+        img.onerror = reject;
+        img.src = dataUrl!;
+      });
+    }, qrDataUrl);
+
+    const qrResult = jsQR(new Uint8ClampedArray(pixelData.data), pixelData.width, pixelData.height);
+    expect(qrResult?.data).toBeTruthy();
+
+    const secret = extractSecretFromOtpAuthUri(qrResult!.data);
+    expect(secret).toBeTruthy();
+
+    // Avoid 30-second TOTP window boundary rollover
+    if (Math.floor(Date.now() / 1000) % 30 >= 27) {
+      await this.page.waitForTimeout(3500);
+    }
+
+    const codeInput = this.page.getByRole('textbox', { name: /verification code/i });
+    await codeInput.scrollIntoViewIfNeeded();
+    await codeInput.fill(generateTotpCode(secret!));
+
+    const submitBtn = this.page.getByRole('button', { name: 'Save' })
+      .or(this.page.getByRole('button', { name: 'Submit' }))
+      .or(this.page.locator('uui-button:has-text("Submit")'))
+      .last();
+
+    await Promise.all([
+      this.page.waitForResponse((res) => res.url().includes('/user/current/2fa/') && res.request().method() === 'POST' && res.status() === 200),
+      submitBtn.click(),
+    ]);
+
+    return secret!;
+  }
+
+  /**
+   * Disables the configured 2FA provider using a valid TOTP code and verifies the Enable button returns.
+   */
+  async disable2FA(secret: string): Promise<void> {
+    const disableButton = this.page.locator('button:has-text("Disable"), uui-button:has-text("Disable")').first();
+    await expect(disableButton).toBeVisible({ timeout: 15_000 });
+    await disableButton.click();
+
+    const disableCodeInput = this.page.locator('input[placeholder*="verification code" i], uui-input[placeholder*="verification code" i] input').first();
+    await expect(disableCodeInput).toBeVisible({ timeout: 10_000 });
+    await disableCodeInput.fill(generateTotpCode(secret));
+
+    const submitDisableBtn = this.page.getByRole('button', { name: 'Save' })
+      .or(this.page.getByRole('button', { name: 'Submit' }))
+      .or(this.page.locator('uui-button:has-text("Submit")'))
+      .last();
+    await submitDisableBtn.click();
+
+    const enableButton = this.page.locator('button:has-text("Enable"), uui-button:has-text("Enable")').first();
+    await expect(enableButton).toBeVisible({ timeout: 15_000 });
   }
 }

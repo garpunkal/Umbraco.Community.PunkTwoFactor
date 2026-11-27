@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<StaticWebAssetBasePath>App_Plugins/punkTwoFactor</StaticWebAssetBasePath>
-		<Version>18.3.2.3</Version>
+		<Version>18.3.2.4</Version>
 		<Product>punkTwoFactor</Product>
 		<PackageId>punkTwoFactor</PackageId>
 		<Title>punkTwoFactor</Title>
@@ -19,6 +19,11 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/garpunkal/punkTwoFactor</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
