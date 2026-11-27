@@ -14,9 +14,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            10.0.x
-            11.0.x
+          dotnet-version: '10.0.x'
       - name: Build
         run: dotnet build --configuration Release
       - name: Run Unit Tests
@@ -53,9 +51,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            10.0.x
-            11.0.x
+          dotnet-version: '10.0.x'
       - name: Build
         run: dotnet build --configuration Release
       - name: Setup Node.js
@@ -100,9 +96,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            10.0.x
-            11.0.x
+          dotnet-version: '10.0.x'
       - name: Verify commit exists in origin/main
         run: |
           git fetch --no-tags origin main

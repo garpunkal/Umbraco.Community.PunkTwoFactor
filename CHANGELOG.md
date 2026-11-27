@@ -3,6 +3,7 @@
 All notable changes to `Umbraco.Community.PunkTwoFactor` are documented in this file.
 
 ## [Unreleased]
+- Removed `.NET 11` / Umbraco 19 from CI workflows and `global.json` on `main`; Umbraco 19 support is developed on the `umbraco-19` branch.
 
 ## [18.3.2.11] - 2026-11-27
 - Scoped stable NuGet package target to `net10.0` (Umbraco 17 and 18) until Umbraco 19.0.0 GA is released (`NU5104`).
